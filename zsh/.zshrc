@@ -12,10 +12,10 @@
 
 () {
   local -a dirs=(
-    "$ZPLUGINDIR"
-    "$XDG_CACHE_HOME"/zsh
-    "$XDG_STATE_HOME"/zsh
-    "$XDG_CACHE_HOME"/fsh
+  "$ZPLUGINDIR"
+  "$XDG_CACHE_HOME"/zsh
+  "$XDG_STATE_HOME"/zsh
+  "$XDG_CACHE_HOME"/fsh
   )
   mkdir -p -- "${dirs[@]}"
 }
@@ -27,10 +27,10 @@ export FAST_WORK_DIR="$XDG_CACHE_HOME/fsh"
 # 1. 插件管理函数（zsh_unplugged，含 bug 修复）
 # ------------------------------------------------------------
 
-##? 克隆插件、定位入口文件、source 它、并加入 fpath
-##? 用法: plugin-load [-d] <user/repo>[@<ref>] ...
-##?   -d        若 zsh-defer 可用则延迟加载（仅对纯 widget 类插件安全）
-##?   @<ref>    固定到某个 commit sha / tag / 分支，用于可重现构建
+## ? 克隆插件、定位入口文件、source 它、并加入 fpath
+## ? 用法: plugin-load [-d] <user/repo>[@<ref>] ...
+## ?   -d        若 zsh-defer 可用则延迟加载（仅对纯 widget 类插件安全）
+## ?   @<ref>    固定到某个 commit sha / tag / 分支，用于可重现构建
 function plugin-load {
   local defer=0
   [[ "$1" == "-d" ]] && { defer=1; shift }
@@ -84,7 +84,7 @@ function plugin-load {
   done
 }
 
-##? 更新所有非固定版本的插件
+## ? 更新所有非固定版本的插件
 function plugin-update {
   local plugdir
   for plugdir in $ZPLUGINDIR/*(/N); do
@@ -95,7 +95,7 @@ function plugin-update {
   plugin-compile
 }
 
-##? 预编译插件为 .zwc，降低启动开销（建议在镜像 build 期跑一次）
+## ? 预编译插件为 .zwc，降低启动开销（建议在镜像 build 期跑一次）
 function plugin-compile {
   autoload -Uz zrecompile
   local f
@@ -113,7 +113,7 @@ function plugin-compile {
 # 3. 环境变量 / 颜色
 #    LS_COLORS 必须在下面的 completion zstyle 之前生成
 # ------------------------------------------------------------
-(( $+commands[less] ))  && export PAGER=less
+(( $+commands[less] )) && export PAGER=less
 (( $+commands[vivid] )) && export LS_COLORS="$(vivid generate catppuccin-mocha)"
 
 # ------------------------------------------------------------
@@ -179,8 +179,8 @@ zstyle ':completion:*' menu no
 # ------------------------------------------------------------
 # 7. 外部工具初始化（注册 widget / 补全，必须在 fzf-tab 之前）
 # ------------------------------------------------------------
-(( $+commands[fzf] ))    && source <(fzf --zsh)
-(( $+commands[atuin] ))  && eval "$(atuin init zsh)"
+(( $+commands[fzf] )) && source <(fzf --zsh)
+(( $+commands[atuin] )) && eval "$(atuin init zsh)"
 (( $+commands[zoxide] )) && eval "$(zoxide init zsh)"
 
 # ------------------------------------------------------------
@@ -194,7 +194,7 @@ zstyle ':fzf-tab:*' switch-group '<' '>'
 plugin-load z-shell/zsh-eza
 
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-ZSH_AUTOSUGGEST_MANUAL_REBIND=1        # 关掉每次 precmd 重绑，明显提速
+ZSH_AUTOSUGGEST_MANUAL_REBIND=1 # 关掉每次 precmd 重绑，明显提速
 plugin-load zsh-users/zsh-autosuggestions
 
 # fast-syntax-highlighting 必须是最后一个加载的 widget 插件

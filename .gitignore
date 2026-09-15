@@ -82,3 +82,7 @@ Temporary Items
 # micro
 /micro/backups
 /micro/buffers
+
+# lefthook
+.lefthook/
+lefthook-local.yml

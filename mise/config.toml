@@ -253,3 +253,6 @@ curl -fsSL "${GH_PROXY:-}https://raw.githubusercontent.com/ajeetdsouza/zoxide/ma
 
 [tools."aqua:sharkdp/vivid"]
 version = "0.11.1"
+
+# 注意：taplo / lefthook / prettier 是仅开发环境需要的工具，
+# 放在仓库根目录的 mise.toml（项目级配置）中，不随本文件部署到生产机器。
