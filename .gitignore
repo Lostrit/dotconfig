@@ -80,8 +80,8 @@ Temporary Items
 /zsh/.zshrc.zwc
 
 # micro
-/micro/backups
-/micro/buffers
+*/micro/backups
+*/micro/buffers
 
 # lefthook
 .lefthook/
