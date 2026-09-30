@@ -16,6 +16,10 @@ mkdir -p \
 mise completion zsh > "${XDG_DATA_HOME}/zsh/site-functions/_mise"
 '''
 
+postinstall = '''
+CLAUDE_CONFIG_DIR="${XDG_DATA_HOME}/claude" herdr integration install claude
+'''
+
 # ---------------------------------------------------------------------------
 # env — 让工具把配置/数据/缓存放到 XDG 目录
 # ---------------------------------------------------------------------------
@@ -123,7 +127,7 @@ atuin gen-completions --shell zsh > "${f}.tmp" && mv "${f}.tmp" "${f}" \
 version = "0.26.1"
 postinstall = '''
 echo "[INFO] bat postinstall"
-mkdir -p "${XDG_CONFIG_HOME}/bat/themes" "${XDG_CONFIG_HOME}/bat/syntaxes" "${XDG_CACHE_HOME}/bat"
+mkdir -p "${XDG_CACHE_HOME}/bat"
 f="${XDG_DATA_HOME}/zsh/site-functions/_bat"
 bat --completion zsh > "${f}.tmp" && mv "${f}.tmp" "${f}" \
   || { rm -f "${f}.tmp"; echo '[WARNING] writing bat completions fail.'; }
@@ -224,15 +228,6 @@ starship completions zsh > "${f}.tmp" && mv "${f}.tmp" "${f}" \
 
 [tools."aqua:tmux/tmux-builds"]
 version = "3.6a"
-# postinstall = '''
-# echo "[INFO] tmux postinstall"
-# mkdir -p "${XDG_CONFIG_HOME}/tmux" "${XDG_DATA_HOME}/tmux/plugins"
-# echo "[INFO] installing catppuccin/tmux plugins"
-# p="${XDG_DATA_HOME}/tmux/plugins/catppuccin/tmux"
-# [ -d "$p/.git" ] || git clone --depth 1 -b v2.3.0 \
-#   https://github.com/catppuccin/tmux.git "$p" \
-#   || echo '[WARNING] cloning catppuccin/tmux fail.'
-# '''
 
 [tools."aqua:sharkdp/vivid"]
 version = "0.11.1"
