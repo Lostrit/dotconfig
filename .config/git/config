@@ -1,7 +1,7 @@
-[url "https://github.cnxiaobai.com/https://github.com/"]
-        insteadOf = https://github.com/
-[url "https://github.com/"]
-	pushInsteadOf = https://github.com/
+# [url "https://github.cnxiaobai.com/https://github.com/"]
+#         insteadOf = https://github.com/
+# [url "https://github.com/"]
+# 	pushInsteadOf = https://github.com/
 [core]
     pager = delta
 
