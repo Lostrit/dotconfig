@@ -86,3 +86,6 @@ Temporary Items
 # lefthook
 .lefthook/
 lefthook-local.yml
+
+# secrets
+authorized_keys
