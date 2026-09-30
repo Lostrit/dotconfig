@@ -65,7 +65,7 @@ FZF_DEFAULT_OPTS = """\
 ATUIN_CONFIG_DIR = "${XDG_CONFIG_HOME}/atuin"
 
 # tmux
-# TMUX_PLUGIN_MANAGER_PATH = "${XDG_DATA_HOME}/tmux/plugins"
+TMUX_PLUGIN_MANAGER_PATH = "${XDG_DATA_HOME}/tmux/plugins"
 
 # starship
 STARSHIP_CONFIG = "${XDG_CONFIG_HOME}/starship/starship.toml"
